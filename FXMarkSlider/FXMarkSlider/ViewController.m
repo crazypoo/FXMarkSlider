@@ -20,31 +20,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.firstSlider.markPositions = @[@1,@2,@3,@4];
-    self.firstSlider.value = 0;
+    self.firstSlider.markPositions = @[@1,@2,@3];
     self.firstSlider.minimumValue = 0;
-    self.firstSlider.maximumValue = 5;
-    [self.firstSlider addTarget:self action:@selector(valueChange) forControlEvents:UIControlEventValueChanged];
+    self.firstSlider.maximumValue = 3;
     self.firstSlider.delegate = self;
 }
 
 - (void)FXSliderTapGestureValue:(CGFloat)selectValue
 {
+    NSLog(@"%f",selectValue);
     self.textView.font = [UIFont systemFontOfSize:(14.0+selectValue*2)];
 }
-- (void)valueChange
-{
-    //改变值避免多次调用
-    NSUInteger tempValue = round(self.firstSlider.value);
-    if (self.firstSlider.currentValue == tempValue ){
-        self.firstSlider.value = self.firstSlider.currentValue;
-        return;
-    }
-    self.firstSlider.currentValue = tempValue;
-    [self.firstSlider setValue:tempValue animated:YES];
-    self.textView.font = [UIFont systemFontOfSize:(14.0+self.firstSlider.currentValue*2)];
-    NSLog(@"%f",self.firstSlider.value);
-}
+
 
 - (void)didReceiveMemoryWarning
 {

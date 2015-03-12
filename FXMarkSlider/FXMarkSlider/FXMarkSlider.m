@@ -19,10 +19,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.continuous = NO;
-        
     }
     return self;
 }
+
 
 -(void)handleSingleFingerEvent:(UITapGestureRecognizer *)sender
 {
@@ -37,10 +37,26 @@
     
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for (UITouch *touch in touches)
+    {
+        CGPoint touchPoint = [touch locationInView:self];
+        CGFloat curruentX  =round(touchPoint.x/self.StripWidth);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(FXSliderTapGestureValue:)])
+        {
+            [self.delegate FXSliderTapGestureValue:curruentX];
+            [self setValue:curruentX animated:NO];
+            break;
+        }
+        
+    }
+}
+
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    
+    self.value = 0;
     // 绘制一个区域画直线
     CGRect innerRect = CGRectInset(rect, 0.0, 5.0);
     //选择区域
@@ -63,7 +79,7 @@
     // 绘制刻度线
     [selectedSide drawAtPoint:CGPointMake(0,0)];
     
-    self.StripWidth = (innerRect.size.width -20)/ 5.0;
+    self.StripWidth = (innerRect.size.width -20)/ self.markPositions.count;
     //中间刻度和 首尾刻度
     for (int i = 0; i < [self.markPositions count]+2; i++) {
         //刻度的宽度
@@ -91,7 +107,6 @@
     singleFingerOne.numberOfTapsRequired = 1; //tap次数
     singleFingerOne.delegate = self;
     [self addGestureRecognizer:singleFingerOne];
-    
     
 }
 
