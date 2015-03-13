@@ -59,7 +59,7 @@
     {
         CGPoint touchPoint = [touch locationInView:self];
         NSInteger currentValue = round((touchPoint.x/self.StripWidth -0.3));
-        if (currentValue<self.minimumValue ||currentValue>self.maximumValue) {
+        if ((currentValue<self.minimumValue) ||(currentValue>self.maximumValue)||(currentValue == self.value)) {
             return;
         }
         if (self.delegate && [self.delegate respondsToSelector:@selector(FXSliderTapGestureValue:)])
