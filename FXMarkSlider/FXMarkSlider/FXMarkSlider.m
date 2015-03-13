@@ -58,7 +58,7 @@
     for (UITouch *touch in touches)
     {
         CGPoint touchPoint = [touch locationInView:self];
-        NSInteger currentValue = round((touchPoint.x/self.StripWidth -0.3));
+        NSInteger currentValue =fabs(round((touchPoint.x/self.StripWidth -0.3)));
         if ((currentValue<self.minimumValue) ||(currentValue>self.maximumValue)||(currentValue == self.value)) {
             return;
         }
