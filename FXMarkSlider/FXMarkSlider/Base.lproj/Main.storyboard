@@ -20,7 +20,7 @@
                                 <rect key="frame" x="33" y="385" width="254" height="31"/>
                             </slider>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." translatesAutoresizingMaskIntoConstraints="NO" id="WKu-EM-FtY">
-                                <rect key="frame" x="29" y="92" width="262" height="175"/>
+                                <rect key="frame" x="29" y="92" width="262" height="142"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -34,7 +34,7 @@
                             <constraint firstItem="21D-sv-E7c" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="35" id="K7i-I1-yaw"/>
                             <constraint firstItem="21D-sv-E7c" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="385" id="VUI-9h-YQ2"/>
                             <constraint firstAttribute="trailing" secondItem="21D-sv-E7c" secondAttribute="trailing" constant="35" id="z7t-0C-s9U"/>
-                            <constraint firstAttribute="bottom" secondItem="WKu-EM-FtY" secondAttribute="bottom" constant="301" id="zip-uT-kdD"/>
+                            <constraint firstAttribute="bottom" secondItem="WKu-EM-FtY" secondAttribute="bottom" constant="334" id="zip-uT-kdD"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

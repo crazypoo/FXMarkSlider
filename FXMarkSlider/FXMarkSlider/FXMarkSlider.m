@@ -53,6 +53,24 @@
     }
 }
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for (UITouch *touch in touches)
+    {
+        CGPoint touchPoint = [touch locationInView:self];
+        NSInteger currentValue = round((touchPoint.x/self.StripWidth -0.3));
+        if (currentValue<self.minimumValue ||currentValue>self.maximumValue) {
+            return;
+        }
+        if (self.delegate && [self.delegate respondsToSelector:@selector(FXSliderTapGestureValue:)])
+        {
+            [self.delegate FXSliderTapGestureValue:currentValue];
+            [self setValue:currentValue animated:NO];
+            break;
+        }
+    }
+}
+
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
